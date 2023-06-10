@@ -1,16 +1,17 @@
 function solution(array, n) {
     let answer = 0;
-    let min = array.filter(num => num <= n).sort((a, b) => a - b);
-    let max = array.filter(num => num >= n).sort((a, b) => a - b);
+    let min = Math.max(...array.filter(num => num <= n));
+    let max = Math.min(...array.filter(num => num >= n));
 
-    if(n - min[min.length - 1] === max[0] - n) {
-        answer = min[min.length - 1];
-    } else if(n - min[min.length - 1] > max[0] - n) {
-        answer = max[0];
-    } else if(n - min[min.length - 1] < max[0] - n) {
-        answer = min[min.length - 1];
+    
+    if(n - min === max - n) {
+        answer = min;
+    } else if(n - min > max - n) {
+        answer = max;
+    } else if(n - min< max - n) {
+        answer = min;
     } else {
-        answer = min[min.length - 1] ?? max[0];
+        answer = min ?? max;
     }
     return answer;
 }
