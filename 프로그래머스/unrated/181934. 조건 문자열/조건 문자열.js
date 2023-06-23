@@ -1,3 +1,7 @@
 function solution(ineq, eq, n, m) {
-    return eval(n + ineq + (eq === '!' ? '' : eq) + m) ? 1 : 0;
+    let answer = 0;
+    if((eq === '=' && n === m) || (ineq === '<' && n < m) || (ineq === '>' && n > m)) {
+        answer = 1;
+    }
+    return answer;
 }
