@@ -4,7 +4,6 @@ function solution(score) {
     let sortAverage = average.slice().sort((a, b) => b - a);
     average.forEach((scores) => {
         let idx = sortAverage.findIndex(num => num === scores);
-        let number = sortAverage.filter(num => num === scores).length;
         answer.push(idx + 1)
     })
     return answer;
